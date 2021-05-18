@@ -10,13 +10,13 @@
                     <div class="card-body">
                         <form action="#" method="post" @submit.prevent="update">
                             <div class="form-group">
-                                <label for="title">Title</label>
+                                <label for="title">Title:</label>
                                 <input type="text" v-model="form.title" id="title" class="form-control">
                                 <div v-if="theErrors.title" class="mt-2 text-danger">{{ theErrors.title[0] }}</div>
                             </div>
 
                             <div class="form-group">
-                                <label for="subject">Subject</label>
+                                <label for="subject">Subject:</label>
                                 <select @change="selectedSubject" id="subject" class="form-control">
                                     <option :value="form.subjectId" v-text="form.subject"></option>
                                     <template v-for="subject in subjects">
@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Description</label>
+                                <label for="description">Description:</label>
                                 <textarea v-model="form.description" id="description" rows="5" class="form-control"></textarea>
                                 <div v-if="theErrors.description" class="mt-2 text-danger">{{ theErrors.description[0] }}</div>
                             </div>
