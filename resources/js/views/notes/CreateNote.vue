@@ -168,6 +168,8 @@
                             type: 'success',
                             duration: 3000
                         })
+
+                        this.$router.push({name: 'notes.table'})
                     })
                     .catch((error) => {
                         // console.log(error.response.data.errors)
