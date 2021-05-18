@@ -39884,7 +39884,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "subject" } }, [
-                    _vm._v("Subject")
+                    _vm._v("Subject:")
                   ]),
                   _vm._v(" "),
                   _c(
