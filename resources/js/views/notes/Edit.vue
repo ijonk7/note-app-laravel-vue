@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <form action="#" method="post" @submit.prevent="update">
                             <div class="form-group">
-                                <label for="title">Title:</label>
+                                <label for="title">Title</label>
                                 <input type="text" v-model="form.title" id="title" class="form-control">
                                 <div v-if="theErrors.title" class="mt-2 text-danger">{{ theErrors.title[0] }}</div>
                             </div>
