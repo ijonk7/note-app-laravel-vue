@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Description</label>
+                                <label for="description">Description:</label>
                                 <textarea v-model="form.description" id="description" rows="5" class="form-control"></textarea>
                                 <div v-if="theErrors.description" class="mt-2 text-danger">{{ theErrors.description[0] }}</div>
                             </div>
