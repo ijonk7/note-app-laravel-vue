@@ -2193,6 +2193,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     type: 'success',
                     duration: 3000
                   });
+
+                  _this2.$router.push({
+                    name: 'notes.table'
+                  });
                 })["catch"](function (error) {
                   // console.log(error.response.data.errors)
                   _this2.loading = false;
