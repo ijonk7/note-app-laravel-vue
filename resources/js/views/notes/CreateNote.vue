@@ -21,14 +21,14 @@
                                     <option v-for="subject in subjects" :key="subject.id" :value="subject.id">
                                         {{ subject.name }}</option>
                                 </select>
-                                <div v-if="theErrors.title" class="mt-2 text-danger">{{ theErrors.subject[0] }}</div>
+                                <div v-if="theErrors.subject" class="mt-2 text-danger">{{ theErrors.subject[0] }}</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <textarea v-model="form.description" id="description" rows="5"
                                     class="form-control"></textarea>
-                                <div v-if="theErrors.title" class="mt-2 text-danger">{{ theErrors.description[0] }}
+                                <div v-if="theErrors.description" class="mt-2 text-danger">{{ theErrors.description[0] }}
                                 </div>
                             </div>
 
@@ -142,7 +142,7 @@
         },
         methods: {
             async getSubjects() {
-                let response = await axios.get('http://localhost/laravel-vue-3/api/subjects')
+                let response = await axios.get('/api/subjects')
                     // console.log(response);
                     .then((response) => {
                         // handle success
@@ -152,7 +152,7 @@
             },
             async store() {
                 this.loading = true
-                let response = await axios.post('http://localhost/laravel-vue-3/api/notes/create-new-note', this.form)
+                let response = await axios.post('/api/notes/create-new-note', this.form)
                     // console.log(response);
                     .then((response) => {
                         // handle success
@@ -170,7 +170,7 @@
                         })
                     })
                     .catch((error) => {
-                        console.log(error.response.data.errors)
+                        // console.log(error.response.data.errors)
 
                         this.loading = false
                         this.$toasted.show("Something went wrong", {
@@ -179,6 +179,8 @@
                         })
 
                         this.theErrors = error.response.data.errors
+
+                        // console.log(this.theErrors)
 
                         // if (error.response.status == 422) {
                         //     this.errors = error.response.data.errors

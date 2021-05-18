@@ -23,20 +23,20 @@
                                         <option v-if="form.subjectId !== subject.id" :key="subject.id" :value="subject.id">{{ subject.name }}</option>
                                     </template>
                                 </select>
-                                <div v-if="theErrors.title" class="mt-2 text-danger">{{ theErrors.subject[0] }}</div>
+                                <div v-if="theErrors.subject" class="mt-2 text-danger">{{ theErrors.subject[0] }}</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <textarea v-model="form.description" id="description" rows="5" class="form-control"></textarea>
-                                <div v-if="theErrors.title" class="mt-2 text-danger">{{ theErrors.description[0] }}</div>
+                                <div v-if="theErrors.description" class="mt-2 text-danger">{{ theErrors.description[0] }}</div>
                             </div>
 
                             <div class="form-inline">
-                            <button type="submit" class="btn btn-primary mr-sm-2">Update</button>
-                            <router-link :to="{name: 'notes.table'}">
-                                <button type="button" class="btn btn-secondary">Back</button>
-                            </router-link>
+                                <button type="submit" class="btn btn-primary mr-sm-2">Update</button>
+                                <router-link :to="{ name: 'notes.table' }">
+                                    <button type="button" class="btn btn-secondary">Back</button>
+                                </router-link>
                             </div>
 
                         </form>
@@ -93,11 +93,31 @@ export default {
                                         .then((response) => {
                                             // handle success
                                             // console.log(response.data)
+
                                             this.$toasted.show(response.data.message, {
                                                 type: 'success',
                                                 duration: 3000
                                             })
                                             this.$router.push({name: 'notes.table'})
+                                        })
+                                        .catch((error) => {
+                                            // console.log(error.response.data.errors)
+
+                                            this.getNote()
+
+                                            this.loading = false
+                                            this.$toasted.show("Something went wrong", {
+                                                type: 'error',
+                                                duration: 3000
+                                            })
+
+                                            this.theErrors = error.response.data.errors
+
+                                            // console.log(this.theErrors)
+
+                                            // if (error.response.status == 422) {
+                                            //     this.errors = error.response.data.errors
+                                            // }
                                         });
         }
     },

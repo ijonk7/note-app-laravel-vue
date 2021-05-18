@@ -2146,7 +2146,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('http://localhost/laravel-vue-3/api/subjects') // console.log(response);
+                return axios.get('/api/subjects') // console.log(response);
                 . // console.log(response);
                 then(function (response) {
                   // handle success
@@ -2176,7 +2176,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this2.loading = true;
                 _context2.next = 3;
-                return axios.post('http://localhost/laravel-vue-3/api/notes/create-new-note', _this2.form) // console.log(response);
+                return axios.post('/api/notes/create-new-note', _this2.form) // console.log(response);
                 . // console.log(response);
                 then(function (response) {
                   // handle success
@@ -2194,7 +2194,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     duration: 3000
                   });
                 })["catch"](function (error) {
-                  console.log(error.response.data.errors);
+                  // console.log(error.response.data.errors)
                   _this2.loading = false;
 
                   _this2.$toasted.show("Something went wrong", {
@@ -2202,7 +2202,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     duration: 3000
                   });
 
-                  _this2.theErrors = error.response.data.errors; // if (error.response.status == 422) {
+                  _this2.theErrors = error.response.data.errors; // console.log(this.theErrors)
+                  // if (error.response.status == 422) {
                   //     this.errors = error.response.data.errors
                   // }
                 });
@@ -2463,6 +2464,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this3.$router.push({
                     name: 'notes.table'
                   });
+                })["catch"](function (error) {
+                  // console.log(error.response.data.errors)
+                  _this3.getNote();
+
+                  _this3.loading = false;
+
+                  _this3.$toasted.show("Something went wrong", {
+                    type: 'error',
+                    duration: 3000
+                  });
+
+                  _this3.theErrors = error.response.data.errors; // console.log(this.theErrors)
+                  // if (error.response.status == 422) {
+                  //     this.errors = error.response.data.errors
+                  // }
                 });
 
               case 3:
@@ -39915,7 +39931,7 @@ var render = function() {
                     0
                   ),
                   _vm._v(" "),
-                  _vm.theErrors.title
+                  _vm.theErrors.subject
                     ? _c("div", { staticClass: "mt-2 text-danger" }, [
                         _vm._v(_vm._s(_vm.theErrors.subject[0]))
                       ])
@@ -39949,7 +39965,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm.theErrors.title
+                  _vm.theErrors.description
                     ? _c("div", { staticClass: "mt-2 text-danger" }, [
                         _vm._v(
                           _vm._s(_vm.theErrors.description[0]) +
@@ -40554,7 +40570,7 @@ var render = function() {
                     2
                   ),
                   _vm._v(" "),
-                  _vm.theErrors.title
+                  _vm.theErrors.subject
                     ? _c("div", { staticClass: "mt-2 text-danger" }, [
                         _vm._v(_vm._s(_vm.theErrors.subject[0]))
                       ])
@@ -40588,7 +40604,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm.theErrors.title
+                  _vm.theErrors.description
                     ? _c("div", { staticClass: "mt-2 text-danger" }, [
                         _vm._v(_vm._s(_vm.theErrors.description[0]))
                       ])
