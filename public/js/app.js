@@ -40505,7 +40505,7 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Title:")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
