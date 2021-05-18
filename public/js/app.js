@@ -40583,7 +40583,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "description" } }, [
-                    _vm._v("Description:")
+                    _vm._v("Description")
                   ]),
                   _vm._v(" "),
                   _c("textarea", {
