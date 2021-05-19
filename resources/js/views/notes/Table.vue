@@ -4,7 +4,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>itle</th>
+                    <th>Title</th>
                     <th>Subject</th>
                     <th>Published</th>
                     <th>Action</th>

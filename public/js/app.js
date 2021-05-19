@@ -39884,7 +39884,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "subject" } }, [
-                    _vm._v("ubject:")
+                    _vm._v("Subject:")
                   ]),
                   _vm._v(" "),
                   _c(
@@ -40820,7 +40820,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("itle")]),
+        _c("th", [_vm._v("Title")]),
         _vm._v(" "),
         _c("th", [_vm._v("Subject")]),
         _vm._v(" "),
