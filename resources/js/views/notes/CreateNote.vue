@@ -16,7 +16,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="subject">Subject:</label>
+                                <label for="subject">ubject:</label>
                                 <select v-model="form.subject" id="subject" class="form-control">
                                     <option v-for="subject in subjects" :key="subject.id" :value="subject.id">
                                         {{ subject.name }}</option>
